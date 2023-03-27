@@ -1,3 +1,5 @@
 class HerowithpowersSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :super_name, :powers
+  has_many :powers, through: :hero_powers
+
 end
