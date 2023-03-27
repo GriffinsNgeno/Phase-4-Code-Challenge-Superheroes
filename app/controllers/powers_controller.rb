@@ -1,5 +1,5 @@
 class PowersController < ApplicationController
-
+    # GET 
     def index
         powers = Power.all
         render json: powers
@@ -14,13 +14,14 @@ class PowersController < ApplicationController
         end
     end
 
+    # PATCH 
     def update
         power = Power.find_by(id: params[:id])
-        if @power
+        if power
             if @power.update(power_params)
-              render json: @power
+              render json: power
             else
-              render json: { errors: @power.errors.full_messages }, status: :unprocessable_entity
+              render json: { errors: power.errors.full_messages }, status: :unprocessable_entity
             end
           else
             render json: { error: "Power not found" }, status: :not_found
