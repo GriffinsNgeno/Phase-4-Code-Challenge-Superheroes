@@ -1,8 +1,5 @@
 class HeroPowersController < ApplicationController
 
-    def create 
-
-    end
     def create
         hero = Hero.find_by(id: params[:hero_id])
         power = Power.find_by(id: params[:power_id])
